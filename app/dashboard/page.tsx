@@ -11,7 +11,7 @@ import { socket } from '@/lib/socket';
 const Page = () => {
     const [group, setGroup] = useState('')
     const [connected, setConnected] = useState(false)
-    const [message, setMessage] = useState([])
+    const [message, setMessage] = useState<object[]>([])
     const [socketId, setSocketId] = useState('')
 
     const [inputGroup, setInputGroup] = useState('')
@@ -24,9 +24,8 @@ const Page = () => {
         setGroup(inputGroup)
     }
 
-    socket.on("message", (transport) => {
+    socket.on("message", (transport: object) => {
         setMessage([...message,transport])
-        console.log(socketId, transport.from)
       });
 
     function sendMessage(message:string) {
