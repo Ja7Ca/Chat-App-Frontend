@@ -30,7 +30,7 @@ const Page = () => {
       });
 
     function sendMessage(message:string) {
-        socket.emit("groupMessage", group, inputMessage)
+        socket.emit("groupMessage", group, message)
         setInputMessage('')
     }
 
