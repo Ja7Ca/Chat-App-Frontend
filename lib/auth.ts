@@ -31,14 +31,15 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         async session({token, session}){
+            let newsession = {...session} as any
             if(token) {
-                session.user.id = token.id
-                session.user.name = token.name
-                session.user.email = token.email
-                session.user.image = token.image
+                newsession.user.id = token.id
+                newsession.user.name = token.name
+                newsession.user.email = token.email
+                newsession.user.image = token.image
             }
 
-            return session
+            return newsession
         },
         async jwt({token}) {
             return token
