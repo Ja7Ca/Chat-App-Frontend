@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import SessionProviderClientComponent from "@/components/SessionProviderClient";
 

@@ -1,7 +1,9 @@
 import { FC } from "react";
 
 interface ChatProps{
-    data: {}
+    data: {
+        message: string;
+    }
 }
 
 const ChatMe:FC<ChatProps> = ({data}) => {

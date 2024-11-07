@@ -1,7 +1,10 @@
 import { FC } from "react";
 
 interface ChatProps {
-    data: {}
+    data: {
+        from: string,
+        message: string
+    }
 }
 
 const ChatYou:FC<ChatProps> = ({data}) => {

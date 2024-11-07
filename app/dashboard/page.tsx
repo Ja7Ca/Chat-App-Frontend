@@ -8,19 +8,6 @@ import { useEffect, useState } from 'react';
 import { IoIosSend } from "react-icons/io";
 import { socket } from '@/lib/socket';
 
-const RenderMessage = (data: {status: string, from:string, success?:boolean, message:string}, socketId: string, key: string) => {
-    console.log(data.from, socketId, data.from == socketId)
-    if(data.status == 'Alert'){
-        return <AlertMessage key={key} success={data.success || false} title={data.message} />
-    } else {
-        if(data.from == socketId){
-            return <ChatMe key={key} data={data}/>
-        } else {
-            return <ChatYou key={key} data={data}/>
-        }
-    }
-}
-
 const Page = () => {
     const [group, setGroup] = useState('')
     const [connected, setConnected] = useState(false)
