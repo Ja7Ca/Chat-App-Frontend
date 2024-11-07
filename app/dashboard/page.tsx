@@ -39,7 +39,7 @@ const Page = () => {
         }
 
         socket.on('connect', () => {
-            setSocketId(socket.id || '')
+            setSocketId(socket.id!)
         })
     
         socket.on("disconnect", onDisconnect);
