@@ -4,7 +4,7 @@ import AlertMessage from '@/components/Alert/AlertMessage';
 import ChatMe from '@/components/Chat/ChatMe';
 import ChatYou from '@/components/Chat/ChatYou';
 import { Button } from 'flowbite-react';
-import { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState, KeyboardEvent, MouseEvent } from 'react';
 import { IoIosSend } from "react-icons/io";
 import { socket } from '@/lib/socket';
 
@@ -107,11 +107,11 @@ const Page = () => {
                 <input 
                     className="w-full rounded-2xl px-2 text-black" 
                     value={inputMessage}
-                    onChange={(e) => {
+                    onChange={(e : ChangeEvent<HTMLInputElement>) => {
                         e.preventDefault();
                         setInputMessage(e.target.value)
                     }}
-                    onKeyUp={(e) => {
+                    onKeyUp={(e : KeyboardEvent<HTMLInputElement>) => {
                         e.preventDefault()
                         if(e.key == 'Enter' && inputMessage && socketId){
                             sendMessage(inputMessage)
@@ -119,7 +119,7 @@ const Page = () => {
                     }}
                 />
                 <Button color="blue" pill 
-                    onClick={(e) => {
+                    onClick={(e: MouseEvent<HTMLButtonElement>) => {
                         e.preventDefault()
                         if(inputMessage){
                             sendMessage(inputMessage)
