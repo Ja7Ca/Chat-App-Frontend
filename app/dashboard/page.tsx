@@ -56,11 +56,11 @@ const Page = () => {
                 className="rounded-2xl px-2 text-black" 
                 placeholder='Type Group Id' 
                 value={inputGroup}
-                onChange={(e) => {
+                onChange={(e : ChangeEvent<HTMLInputElement>) => {
                     e.preventDefault();
                     setInputGroup(e.target.value)
                 }}
-                onKeyUp={(e) => {
+                onKeyUp={(e : KeyboardEvent<HTMLInputElement>) => {
                     e.preventDefault()
                     if(e.key == 'Enter' && inputGroup){
                         joinGroup(inputGroup)
@@ -79,7 +79,7 @@ const Page = () => {
                 {group} - {socket.id}
                 </h2>
                 <p className='text-center'>Chat App</p>
-                <Button color="failure" onClick={(e) => {
+                <Button color="failure" onClick={(e: MouseEvent<HTMLButtonElement>) => {
                     e.preventDefault()
                     socket.emit('leaveGroup', group)
                     setConnected(false)
